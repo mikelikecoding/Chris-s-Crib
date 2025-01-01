@@ -1,0 +1,77 @@
+/* HEADER STYLES */
+
+.header {
+    width: 100vw;
+    height: 15rem;
+    background-color: #007BFF;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 4px solid #0056b3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .branding {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Vertically aligns items */
+    justify-content: space-between; /* Pushes items to the edges */
+    gap: 15px;
+    padding: 0 1rem; /* Add padding for small screen spacing */
+  }
+  
+  /* Navbar styles, to ensure it works well on mobile as well */
+  .Navbar {
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Responsive for small mobile screens (iPhones, Android phones) */
+  @media screen and (max-width: 767px) {
+    .header {
+      height: auto; /* Allow height to be flexible on small screens */
+      padding: 10px 0; /* Reduce padding */
+    }
+  
+    .branding {
+      flex-direction: column; /* Stack the logo and navbar on small screens */
+      gap: 10px; /* Reduce the gap between items */
+      align-items: center; /* Center the branding items */
+    }
+  
+    /* Adjust logo size for smaller screens */
+    .branding img {
+      width: 50%; /* Scale logo down */
+    }
+  
+    /* Adjust navbar style for mobile */
+    .Navbar {
+      padding: 10px 0;
+    }
+  }
+  
+  /* Very small screens (older iPhones, Android phones) */
+  @media screen and (max-width: 480px) {
+    .header {
+      padding: 5px 0; /* Reduce header padding for very small screens */
+    }
+  
+    .branding {
+      gap: 5px; /* Reduce gap further */
+    }
+  
+    /* Adjust logo size further for smaller screens */
+    .branding img {
+      width: 40%; /* Make logo even smaller */
+    }
+  
+    /* Navbar adjustments */
+    .Navbar {
+      padding: 5px 0;
+    }
+  }
+  

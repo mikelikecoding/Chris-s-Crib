@@ -1,0 +1,10 @@
+
+.logo {
+    display: flex;
+    align-self: start;
+    width: 400px;
+    height: 60px;
+    border-radius: 5%; /* Makes it circular */
+    object-fit: cover; /* Ensures the image scales nicely */
+    margin-left: 6%;
+  }

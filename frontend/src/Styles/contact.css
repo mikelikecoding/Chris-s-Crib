@@ -1,0 +1,147 @@
+/* CONTACT PAGE */
+
+/* Container for the entire contact section */
+#contact .container {
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 600px; /* Optional: Limit width */
+  padding: 1rem;
+  margin: 0 auto; /* Center the container */
+}
+
+/* Styling for the Contact Us heading (h1) */
+#contact h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center; /* Ensure it's centered */
+}
+
+/* Styling for the Contact Us description paragraph (p) */
+#contact p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Styles for the form container */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Individual form-group containers for inputs and labels */
+.form-group {
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Input fields (text, email) and textarea styling */
+textarea,
+input[type="text"],
+input[type="email"] {
+  width: 80%; /* Adjust input field width */
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-align: center; /* Center text in inputs */
+}
+
+/* Submit button styling */
+button[type="submit"] {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff; /* Primary button color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* Disabled state for the submit button */
+button[type="submit"]:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Response message styling */
+.response-message {
+  margin: 10px auto;
+  text-align: center;
+}
+
+/* Mobile responsive styling */
+@media screen and (max-width: 767px) {
+  #contact .container {
+    height: auto;
+    max-width: 100%; /* Allow container to take full width on small screens */
+    padding: 1rem;
+  }
+
+  #contact h1 {
+    font-size: 1.5rem; /* Adjust heading size for smaller screens */
+  }
+
+  #contact p {
+    font-size: 0.9rem; /* Adjust paragraph text size */
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    width: 100%; /* Ensure form groups are full width on mobile */
+  }
+
+  textarea,
+  input[type="text"],
+  input[type="email"] {
+    width: 90%; /* Allow inputs to take more width on mobile */
+    font-size: 0.9rem; /* Smaller font size for inputs */
+  }
+
+  button[type="submit"] {
+    width: 90%; /* Ensure the submit button is responsive */
+    font-size: 1rem;
+  }
+}
+
+/* Very small screens (like older iPhones, etc.) */
+@media screen and (max-width: 480px) {
+  #contact .container {
+    padding: 0.5rem; /* Less padding for very small screens */
+  }
+
+  #contact h1 {
+    font-size: 1.25rem; /* Adjust heading size further */
+  }
+
+  #contact p {
+    font-size: 0.8rem; /* Smaller paragraph text */
+  }
+
+  .form-group {
+    margin-bottom: 0.8rem; /* Reduce space between form groups */
+  }
+
+  textarea,
+  input[type="text"],
+  input[type="email"] {
+    width: 100%; /* Inputs should take full width */
+    font-size: 0.8rem; /* Further reduce font size for very small screens */
+  }
+
+  button[type="submit"] {
+    font-size: 0.9rem; /* Smaller button text */
+  }
+}
+

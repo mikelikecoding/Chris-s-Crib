@@ -1,0 +1,27 @@
+.nav {
+    width: 100vw;
+    list-style: none;
+    
+    gap: 20px;
+    padding: 0;
+  }
+  
+  .nav li {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    display: inline;
+    margin-right: 5%;
+  }
+  
+  .nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  
+  .nav-links a:hover {
+    color: #ffcc00;
+  }
+  
