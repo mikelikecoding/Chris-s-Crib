@@ -1,10 +1,10 @@
 import React from 'react';
-import "../Styles/footer.css"
+import "../Styles/footer.css";
 
 function Footer() {
   return (
     <footer id="footer">
-      <div >
+      <div className="container">
         <div className="footer-content">
           <p>&copy; {new Date().getFullYear()} Chris's Crib. All rights reserved.</p>
           <div className="social-links">

@@ -1,8 +1,9 @@
 /* Home Page */
 
-#home {
-    height: 65vh;
-  }
+/* #home {
+    height: 59.5vh;
+  } */
+
   .home {
     text-align: center;
     background-image: url(../public/images/shower2.jpg);
@@ -90,4 +91,80 @@
 .cta-buttons {
     margin-left: 17% !important;
     padding-left: 2rem; /* Adds space to the left */
+}
+
+/* ///// */
+
+
+ /* Adjustments for Tablets */
+@media screen and (max-width: 1024px) {
+  .mission {
+    width: 90%; /* Occupy more width on tablets */
+    padding: 1rem;
+    overflow: auto; /* Allow scrolling if content overflows */
+  }
+
+  .mission p {
+    font-size: 1rem; /* Slightly smaller text */
+  }
+
+  .cta-button {
+    font-size: 0.9rem; /* Adjust button font size */
+  }
+}
+
+/* Adjustments for Phones */
+@media screen and (max-width: 767px) {
+  .home {
+    align-items: center; /* Center-align items */
+    text-align: center; /* Center-align text */
+    padding: 1rem; /* Add padding for smaller screens */
+    overflow: auto; /* Enable scrolling for the home section */
+  }
+
+  .mission {
+    width: 95%; /* Occupy almost full width */
+    padding: 1rem;
+    overflow: auto; /* Allow scrolling if content overflows */
+  }
+
+  .mission p {
+    font-size: 0.9rem; /* Smaller text for better scaling */
+  }
+
+  .cta-button {
+    font-size: 0.8rem; /* Further adjust button size */
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+/* Adjustments for Very Small Phones */
+@media screen and (max-width: 480px) {
+  .home {
+    overflow: auto; /* Allow scrolling for very small screens */
+  }
+
+  .mission {
+    padding: 0.8rem;
+    border-radius: 5px; /* Subtle rounding for smaller screens */
+    overflow: auto; /* Allow scrolling if content overflows */
+  }
+
+  .mission p {
+    font-size: 0.8rem;
+  }
+
+  .cta-buttons {
+    font-size: 0.7rem;
+    padding: 0.6rem 1rem;
+    margin-right: 10% !important;
+
+  }
+
+  
+  #home .home .container .cta-buttons b {
+    background-color: red !important;
+    margin-top: -5% !important;
+  }
+
 }

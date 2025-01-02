@@ -8,6 +8,7 @@ function Logo() {
         src="/images/logo.png" 
         alt="Nonprofit Logo" 
         className="logo" 
+        width="2rem"
       />
     </div>
   );

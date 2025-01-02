@@ -3,7 +3,8 @@ import "../Styles/contact.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [responseMessage, setResponseMessage] = useState("");
+  const [responseMessage, setResponseMessage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -13,8 +14,24 @@ const Contact = () => {
     }));
   };
 
+  const validateForm = () => {
+    if (!formData.name || !formData.email || !formData.message) {
+      setResponseMessage({ type: "error", text: "All fields are required." });
+      return false;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setResponseMessage({ type: "error", text: "Please enter a valid email address." });
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
+    setIsLoading(true);
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -24,15 +41,19 @@ const Contact = () => {
 
       const result = await response.json();
       if (response.ok) {
-        setResponseMessage("Thank you for your message. We'll get back to you soon.");
+        setResponseMessage({ type: "success", text: "Thank you for your message. We'll get back to you soon." });
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setResponseMessage(result.error || "Something went wrong.");
+        setResponseMessage({ type: "error", text: result.error || "Something went wrong." });
       }
     } catch (error) {
-      setResponseMessage("Error: Unable to submit the form.");
+      setResponseMessage({ type: "error", text: "Error: Unable to submit the form." });
+    } finally {
+      setIsLoading(false);
     }
   };
+
+  const isFormValid = formData.name && formData.email && formData.message;
 
   return (
     <section id="contact">
@@ -41,40 +62,49 @@ const Contact = () => {
         <p>If you have any questions, feel free to reach out!</p>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Name</label>
+            {/* <label htmlFor="name">Name</label> */}
             <input
               type="text"
               id="name"
               name="name"
               value={formData.name}
               onChange={handleChange}
+              placeholder="Enter your full name"
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            {/* <label htmlFor="email">Email</label> */}
             <input
               type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
+              placeholder="Enter your email"
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="message">Message</label>
+            {/* <label htmlFor="message">Message</label> */}
             <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
+              placeholder="Write your message here"
               required
             ></textarea>
           </div>
-          <button type="submit">Send Message</button>
+          <button type="submit" disabled={!isFormValid || isLoading}>
+            {isLoading ? "Sending..." : "Send Message"}
+          </button>
         </form>
-        {responseMessage && <p>{responseMessage}</p>}
+        {responseMessage && (
+          <p className={`response-message ${responseMessage.type}`}>
+            {responseMessage.text}
+          </p>
+        )}
       </div>
     </section>
   );

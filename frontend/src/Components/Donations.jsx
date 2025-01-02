@@ -21,14 +21,6 @@ function Donations() {
     }));
   };
 
-//   ZEFFY CODE BELOW/////////////////
-
-//   Handle form submission for Zeffy-hosted donation
-  
-//   const handleZeffyRedirect = () => {
-//     const redirectURL = `https://www.zeffy.com/en-US/donation-form/your-form-id?name=${formData.name}&email=${formData.email}&donationAmount=${formData.donationAmount}&message=${formData.message}`;
-//     window.location.href = redirectURL;
-//   };
 
   // Embed Zeffy Form (Alternative)
   const zeffyEmbed = (
@@ -51,77 +43,20 @@ function Donations() {
 
   return (
     <section id="donations">
-      <div className="container">
+      <div className="container scroll">
         <h1>Make a Donation</h1>
         <p>Your support helps us provide essential services to those in need. Thank you for your generosity!</p>
 
         {/* Option 1: Embedded Zeffy Form */}
         {zeffyEmbed}
-
-        {/* Option 2: Redirect to Zeffy-hosted Form */}
-        {/* <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleZeffyRedirect();
-          }}
-        > */}
-          {/* <div className="form-group">
-            <label htmlFor="name">Your Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="email">Your Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="donationAmount">Donation Amount ($)</label>
-            <input
-              type="number"
-              id="donationAmount"
-              name="donationAmount"
-              value={formData.donationAmount}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="message">Message (Optional)</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-            ></textarea>
-          </div>
-
-          <button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Processing...' : 'Submit Donation via Zeffy'}
-          </button>
-        </form> */}
-
+        
+       
         {responseMessage && <p>{responseMessage}</p>}
 
         <p>If you prefer, you can also donate directly via Zelle:</p>
         <ul>
-          <li>Email: chriscrib710@gmail.com</li>
-          <li>Phone: (510) 650-1618</li>
+          <li>Email: chriscrib710@gmail.com, or </li>
+          <li>Phone: (510) 872-2204</li>
         </ul>
       </div>
     </section>
@@ -129,3 +64,37 @@ function Donations() {
 }
 
 export default Donations;
+
+// FOR FUTURE REFACTORING
+
+// const [useEmbed, setUseEmbed] = useState(true);
+
+// return (
+//   <section id="donations">
+//     <div className="container">
+//       <h1>Make a Donation</h1>
+//       <p>Your support helps us provide essential services to those in need. Thank you for your generosity!</p>
+
+//       <div className="donation-options">
+//         <button onClick={() => setUseEmbed(true)} className="cta-button">Use Embedded Form</button>
+//         <button onClick={() => setUseEmbed(false)} className="cta-button">Redirect to Zeffy</button>
+//       </div>
+
+//       {useEmbed ? (
+//         zeffyEmbed
+//       ) : (
+//         <p>
+//           <a href="https://www.zeffy.com/fundraising/chriss-crib" target="_blank" rel="noopener noreferrer">
+//             Click here to donate on Zeffy's website
+//           </a>
+//         </p>
+//       )}
+
+//       <p>If you prefer, you can also donate directly via Zelle:</p>
+//       <ul>
+//         <li>Email: chriscrib710@gmail.com</li>
+//         <li>Phone: (510) 650-1618</li>
+//       </ul>
+//     </div>
+//   </section>
+// );

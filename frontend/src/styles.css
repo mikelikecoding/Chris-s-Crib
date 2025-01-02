@@ -22,6 +22,8 @@
 }
 
 
-  
+  #home, #contact, #donations, .services {
+    height: 66.2vh;
+  }
   
   

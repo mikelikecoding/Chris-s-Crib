@@ -15,13 +15,13 @@ const Home = () => {
         <p>Your support will help provide essential services for those in need.</p>
       </section>
 
-      <div className="cta-buttons p">
-        <button className="cta-button">
+      <div className="cta-buttons ">
+        <button className="cta-button p">
           <a href="/donations" style={{ color: 'inherit', textDecoration: 'none' }}>
             Donate Now
           </a>
         </button>
-        <button className="cta-button p">
+        <button className="cta-button p b">
           <a href="/services" style={{ color: 'inherit', textDecoration: 'none' }}>
             Learn About Our Services
           </a>

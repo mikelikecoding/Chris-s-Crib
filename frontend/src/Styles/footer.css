@@ -1,11 +1,11 @@
 /* FOOTER STYLES */
 
 #footer {
+    /* height: 25vh; */
     background-color: #007BFF;
     color: white;
     padding: 2rem 0;
     text-align: center;
-    padding-bottom: 5%;
   }
   
   #footer .container {
@@ -46,7 +46,7 @@
     color: #007BFF;
   }
   
-  /* Responsive for small mobile screens (iPhones, Android phones) */
+  /* Responsive for tablets, iPads, and small mobile screens (iPhones, Android phones) */
   @media screen and (max-width: 767px) {
     #footer {
       padding: 1rem 0;
@@ -79,5 +79,17 @@
   }
   
   /* Very small screens (older iPhones, Android phones) */
-  /* @media scree */
+  @media screen and (max-width: 480px) {
+    .footer-content p {
+      font-size: 0.9rem; /* Further reduce text size for very small screens */
+    }
+  
+    .social-links a {
+      font-size: 0.9rem; /* Smaller font size for social links */
+    }
+  
+    footer nav a {
+      font-size: 0.9rem; /* Adjust nav link size for very small screens */
+    }
+  }
   
