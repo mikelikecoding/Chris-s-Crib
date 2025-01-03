@@ -17,14 +17,22 @@ const Contact = () => {
   const validateForm = () => {
     if (!formData.name || !formData.email || !formData.message) {
       setResponseMessage({ type: "error", text: "All fields are required." });
+      clearMessageAfterDelay(); // Clear message after delay
       return false;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setResponseMessage({ type: "error", text: "Please enter a valid email address." });
+      clearMessageAfterDelay(); // Clear message after delay
       return false;
     }
     return true;
+  };
+
+  const clearMessageAfterDelay = () => {
+    setTimeout(() => {
+      setResponseMessage(null); // Clear the response message
+    }, 3000); // 3 seconds
   };
 
   const handleSubmit = async (e) => {
@@ -33,7 +41,7 @@ const Contact = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("http://localhost:5001/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -50,6 +58,7 @@ const Contact = () => {
       setResponseMessage({ type: "error", text: "Error: Unable to submit the form." });
     } finally {
       setIsLoading(false);
+      clearMessageAfterDelay(); // Clear message after delay
     }
   };
 
@@ -62,7 +71,6 @@ const Contact = () => {
         <p>If you have any questions, feel free to reach out!</p>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            {/* <label htmlFor="name">Name</label> */}
             <input
               type="text"
               id="name"
@@ -74,7 +82,6 @@ const Contact = () => {
             />
           </div>
           <div className="form-group">
-            {/* <label htmlFor="email">Email</label> */}
             <input
               type="email"
               id="email"
@@ -86,7 +93,6 @@ const Contact = () => {
             />
           </div>
           <div className="form-group">
-            {/* <label htmlFor="message">Message</label> */}
             <textarea
               id="message"
               name="message"

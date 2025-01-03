@@ -45,7 +45,7 @@ function Donations() {
     <section id="donations">
       <div className="container scroll">
         <h1>Make a Donation</h1>
-        <p>Your support helps us provide essential services to those in need. Thank you for your generosity!</p>
+        <p>Your support helps us provide essential services to those in need. Thank you for your generosity!<br /> Please feel free to read the content below!</p>
 
         {/* Option 1: Embedded Zeffy Form */}
         {zeffyEmbed}

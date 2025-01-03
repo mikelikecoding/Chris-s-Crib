@@ -8,6 +8,10 @@ const rateLimit = require("express-rate-limit");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const fs = require("fs");
+const cors = require("cors");
+
+
+
 
 dotenv.config();
 
@@ -48,6 +52,13 @@ if (cluster.isMaster) {
       next();
     });
   };
+
+  // Allow requests from your frontend's origin
+app.use(cors({
+    origin: "http://localhost:5173", // Replace with your frontend's URL
+    methods: ["GET", "POST"], // Specify allowed methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
+  }));
 
   // Import and use routes
   const authRouter = require("./Routes/auth");
