@@ -7,7 +7,7 @@
     justify-content: flex-start; /* Align content to the top */
     width: 100%; /* Ensure full width */
     /* height: 65vh;  */
-    background-image: url(../public/images/wash6.jpg);
+    background-image: url(../images/wash6.jpg);
     background-position: 100% 60%; /* Horizontal center and vertical bottom */
     background-repeat: no-repeat;
     background-size: auto 200%; /* Scale image to double its height */

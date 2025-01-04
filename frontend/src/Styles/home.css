@@ -4,12 +4,13 @@
     height: 59.5vh;
   } */
 
-  .home {
-    text-align: center;
-    background-image: url(../public/images/shower2.jpg);
-    background-repeat: no-repeat;
+  /* .home {
+    text-align: center; */
+    /* background-image: url(../images/shower2.jpg); */
+
+    /* background-repeat: no-repeat;
     background-size: cover;
-  }
+  } */
   /* Home Page */
 .home {
   display: flex;
@@ -75,7 +76,9 @@
     gap: 1rem; /* Adds spacing between child elements */
     margin-left: 3%; /* Adds space to the left of the mission section */
     /* border-radius: 5%; */
+    justify-content: center;
     margin-top: 3%;
+    text-align: center;
   }
   
 

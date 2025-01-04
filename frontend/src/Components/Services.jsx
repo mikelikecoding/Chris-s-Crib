@@ -1,10 +1,22 @@
 // src/Components/Services.jsx
 import React from "react";
 import "../Styles/services.css"
+import showerImage from '../images/wash6.jpg';
+import { Link } from "react-router-dom";
+
 
 const Services = () => {
   return (
-    <div className="container services" id="container2">
+    <div className="container services" id="container2"
+    
+    style={{
+      backgroundImage: `url(${showerImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      height: '66.3vh', // Adjust as needed
+    }}
+    
+    >
       <h1>Details about the services...</h1>
 
       <section className="mission2">
@@ -30,12 +42,9 @@ const Services = () => {
 
       <div className="cta-buttons">
         <button className="cta-button">
-          <a
-            href="/donations"
-            style={{ color: "inherit", textDecoration: "none" }}
-          >
-            Donate Now
-          </a>
+        <Link to="/donations">
+            <button className="cta-button"  style={{ color: 'white', textDecoration: 'none' }} >Donate Now!</button>
+          </Link>
         </button>
       </div>
     </div>

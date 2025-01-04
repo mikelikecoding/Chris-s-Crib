@@ -6,6 +6,7 @@ import Home from './Components/Home'; // Your Home page
 import Services from './Components/Services'; // Your Services page
 import Donations from './Components/Donations'; // Your Donations page
 import Contact from './Components/Contact'; // Your Contact page
+import './styles.css'
 // import Login from './Components/Admin/Login';
 // import AdminDashboard from "./Components/Admin/AdminDashboard";
 

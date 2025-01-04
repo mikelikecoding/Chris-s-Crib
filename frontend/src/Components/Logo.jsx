@@ -1,17 +1,10 @@
 import React from 'react';
-import "../Styles/logo.css"
+import logo from '../images/logo.png'; // Adjust the path as necessary
 
-function Logo() {
-  return (
-    <div className="logo-container">
-      <img 
-        src="/images/logo.png" 
-        alt="Nonprofit Logo" 
-        className="logo" 
-        width="2rem"
-      />
-    </div>
-  );
-}
+const Header = () => (
+  <header>
+    <img src={logo} alt="Nonprofit Logo" className="logo" width="32" />
+  </header>
+);
 
-export default Logo;
+export default Header;

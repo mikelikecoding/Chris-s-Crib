@@ -3,6 +3,7 @@ import Logo from "./Logo";
 import Navbar from "./Navbar";
 import "../Styles/header.css"
 
+
 function Header() {
   return (
     <header className="header">
