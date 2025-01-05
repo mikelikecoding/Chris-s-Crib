@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
@@ -9,9 +9,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const fs = require("fs");
 const cors = require("cors");
-
-
-
+const path = require("path");
 
 dotenv.config();
 
@@ -32,13 +30,36 @@ if (cluster.isMaster) {
   app.use(express.json());
   app.use(cookieParser());
 
+  // Serve static files (images) from the "public/images" folder
+  app.use("/api/images", express.static(path.join(__dirname, "public/images")));
+
+  // Health Check Route (Optional)
+  app.get("/", (req, res) => {
+    res.send("Backend is running!");
+  });
+
   // Rate Limiting
   const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 100, // 100 requests per IP per 15 minutes
   });
-
   app.use(limiter);
+
+  // CORS Configuration
+  const allowedOrigins = process.env.CORS_ORIGIN.split(",");
+  app.use(
+    cors({
+      origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true); // Allow the request
+        } else {
+          callback(new Error("Not allowed by CORS")); // Block the request
+        }
+      },
+      methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed HTTP methods
+      credentials: true, // Allow credentials (cookies, etc.)
+    })
+  );
 
   // Admin Routes Security Middleware
   const authenticateAdmin = (req, res, next) => {
@@ -53,25 +74,14 @@ if (cluster.isMaster) {
     });
   };
 
-  // Allow requests from your frontend's origin
-app.use(cors({
-    origin: "http://localhost:5173", // Replace with your frontend's URL
-    methods: ["GET", "POST"], // Specify allowed methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
-  }));
-
   // Import and use routes
   const authRouter = require("./Routes/auth");
   const contactRouter = require("./Routes/contact");
+  const loginRoute = require("./Routes/login"); // Ensure this file exists and exports the login route
 
-  // Admin login route to authenticate and generate token
-  const loginRoute = require("./Routes/login"); // Make sure this file exists and properly exports a route
   app.use("/api/auth", authRouter);
   app.use("/api/contact", contactRouter);
-
   app.use("/api/admin", authenticateAdmin, require("./Routes/admin")); // Protect admin routes
-
-  // Admin login handler
   app.use(loginRoute);
 
   // Error handler middleware

@@ -1,15 +1,17 @@
 import React from "react";
 import "../Styles/home.css";
-import showerImage from "../images/shower2.jpg";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const backendUrl = "http://localhost:5001/api/images"; // Replace with your backend URL
+
+
   return (
     <div
       className="home container"
       id="home"
       style={{
-        backgroundImage: `url(${showerImage})`,
+        backgroundImage: `url(${backendUrl}/shower2.jpg)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: "66.3vh", // Adjust as needed
@@ -38,15 +40,25 @@ const Home = () => {
       </section>
 
       <div className="cta-buttons ">
-        <button className="cta-button p" a>
+        <button className="cta-button p">
           <Link to="/donations">
-            <button className="cta-button"  style={{ color: 'white', textDecoration: 'none' }} >Donate Now!</button>
+            <button
+              className="cta-button"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              Donate Now!
+            </button>
           </Link>
         </button>
 
         <button className="cta-button p b">
-        <Link to="/services">
-            <button className="cta-button"  style={{ color: 'white', textDecoration: 'none' }} >Learn About Our Services!</button>
+          <Link to="/services">
+            <button
+              className="cta-button"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              Learn About Our Services!
+            </button>
           </Link>
         </button>
       </div>

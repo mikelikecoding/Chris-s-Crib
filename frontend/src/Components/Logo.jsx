@@ -1,9 +1,15 @@
-import React from 'react';
-import logo from '../images/logo.png'; // Adjust the path as necessary
+// src/Components/Logo.jsx
+import React from "react";
+const backendUrl = "http://localhost:5001/api/images"; // Replace with your backend URL
 
 const Header = () => (
   <header>
-    <img src={logo} alt="Nonprofit Logo" className="logo" width="32" />
+    <img
+      src={`${backendUrl}/logo.png`} // Dynamically load the logo image
+      alt="Nonprofit Logo"
+      className="logo" // Preserve the className attribute
+      width="32"
+    />
   </header>
 );
 

@@ -1,17 +1,16 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');  // Import the plugin
 
 module.exports = {
   entry: './src/index.jsx',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: '/', // Ensure this points to the root of the site
   },
   module: {
     rules: [
       {
-        test: /\.jsx$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
@@ -19,31 +18,24 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[hash].[ext]',
-              outputPath: 'images/',
-            },
-          },
-        ],
-      },
     ],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    port: 9000,
+    hot: true,
+    historyApiFallback: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: './public/index.html', // Path to your HTML template
     }),
   ],
-  devServer: {
-    static: './dist',
-    open: true,
-    port: 3000,
-  },
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
 };

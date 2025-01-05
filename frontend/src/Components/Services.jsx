@@ -1,21 +1,20 @@
 // src/Components/Services.jsx
 import React from "react";
-import "../Styles/services.css"
-import showerImage from '../images/wash6.jpg';
+import "../Styles/services.css";
 import { Link } from "react-router-dom";
-
+const backendUrl = "http://localhost:5001/api/images"; // Replace with your backend URL
 
 const Services = () => {
   return (
-    <div className="container services" id="container2"
-    
-    style={{
-      backgroundImage: `url(${showerImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      height: '66.3vh', // Adjust as needed
-    }}
-    
+    <div
+      className="container services"
+      id="container2"
+      style={{
+        backgroundImage: `url(${backendUrl}/wash6.jpg)`, // Dynamically load the background image
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "66.3vh", // Adjust as needed
+      }}
     >
       <h1>Details about the services...</h1>
 
@@ -23,7 +22,7 @@ const Services = () => {
         <p>
           What We'll be Offering for the homeless by mid 2025 with your help!!
         </p>
-        <p>Access to showers three times a week for for the homeless.</p>
+        <p>Access to showers three times a week for the homeless.</p>
         <p>
           Weekly laundry services to provide clean clothes for the homeless.
         </p>
@@ -32,8 +31,8 @@ const Services = () => {
           need.
         </p>
         <p>
-          Refurals to homeless sheltor and food banks, as well as mental health
-          services
+          Referrals to homeless shelters and food banks, as well as mental
+          health services.
         </p>
         <p>
           Your support will help provide essential services for those in need.
@@ -42,8 +41,13 @@ const Services = () => {
 
       <div className="cta-buttons">
         <button className="cta-button">
-        <Link to="/donations">
-            <button className="cta-button"  style={{ color: 'white', textDecoration: 'none' }} >Donate Now!</button>
+          <Link to="/donations">
+            <button
+              className="cta-button"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              Donate Now!
+            </button>
           </Link>
         </button>
       </div>
@@ -51,4 +55,4 @@ const Services = () => {
   );
 };
 
-export default Services; // Add this default export
+export default Services;
