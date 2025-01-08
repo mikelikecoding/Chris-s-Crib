@@ -4,8 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');  // Import the plugin
 module.exports = {
   entry: './src/index.jsx',
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js',
+    // Output to the 'dist' directory
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',  // The output bundle file name
   },
   module: {
     rules: [
@@ -25,7 +26,8 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'public'),
+      // Serve files from the 'dist' folder during development
+      directory: path.join(__dirname, 'dist'),
     },
     compress: true,
     port: 9000,
@@ -34,7 +36,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html', // Path to your HTML template
+      template: './public/index.html',  // Path to your HTML template
     }),
   ],
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
