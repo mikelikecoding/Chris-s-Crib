@@ -1,0 +1,64 @@
+.nav {
+    width: 100vw;
+    list-style: none;
+    
+    gap: 20px;
+    padding: 0;
+  }
+  
+  .nav li {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    display: inline;
+    margin-right: 5%;
+  }
+  
+  .nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  
+  .nav-links a:hover {
+    color: #ffcc00;
+  }
+  /* ////////// */
+
+  
+  /* Responsive styling for tablets and smaller devices */
+  @media screen and (max-width: 1024px) {
+    .nav a {
+      font-size: 1.2rem; /* Adjust font size for tablets */
+    }
+  }
+  
+  /* Responsive styling for phones */
+  @media screen and (max-width: 767px) {
+    .nav {
+      flex-direction: column; /* Stack items vertically */
+      padding: 1rem; /* Add padding for better spacing */
+    }
+  
+    .nav ul {
+      flex-direction: column; /* Stack links vertically */
+      gap: 1rem; /* Reduce space between links */
+    }
+  
+    .nav a {
+      font-size: 1rem; /* Adjust font size for small screens */
+    }
+  }
+  
+  /* Further adjustments for very small screens */
+  @media screen and (max-width: 480px) {
+    .nav {
+      padding: 0.5rem; /* Reduce padding */
+    }
+  
+    .nav a {
+      font-size: 0.9rem; /* Further reduce font size */
+    }
+  }
+  

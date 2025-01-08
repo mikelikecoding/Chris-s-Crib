@@ -1,0 +1,38 @@
+
+
+  .logo {
+    display: flex;
+    align-self: start;
+    width: 400px; /* Default width */
+    height: 60px;
+    border-radius: 5%; /* Makes it circular */
+    object-fit: cover; /* Ensures the image scales nicely */
+    margin-left: 6%;
+}
+
+  /* ///// */
+  
+  /* Adjustments for tablets */
+  @media screen and (max-width: 1024px) {
+    .logo {
+      width: 300px; /* Scale down for tablets */
+      margin-left: 4%;
+    }
+  }
+  
+  /* Adjustments for phones */
+  @media screen and (max-width: 767px) {
+    .logo {
+      width: 200px; /* Scale down for phones */
+      margin-left: 2%;
+    }
+  }
+  
+  /* Adjustments for very small screens */
+  @media screen and (max-width: 480px) {
+    .logo {
+      width: 150px; /* Further scale down for very small screens */
+      margin-left: 0;
+    }
+  }
+  

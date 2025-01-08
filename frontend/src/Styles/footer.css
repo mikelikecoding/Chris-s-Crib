@@ -1,0 +1,95 @@
+/* FOOTER STYLES */
+
+#footer {
+    /* height: 25vh; */
+    background-color: #007BFF;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+  }
+  
+  #footer .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  .footer-content p {
+    font-size: 1.1rem;
+  }
+  
+  .social-links a {
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+  }
+  
+  .social-links a:hover {
+    color: darkblue;
+  }
+  
+  footer nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 0.5rem;
+  }
+  
+  footer nav a:hover {
+    color: #007BFF;
+  }
+  
+  /* Responsive for tablets, iPads, and small mobile screens (iPhones, Android phones) */
+  @media screen and (max-width: 767px) {
+    #footer {
+      padding: 1rem 0;
+    }
+  
+    .footer-content p {
+      font-size: 1rem; /* Make the text a little smaller for small screens */
+    }
+  
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .social-links a {
+      font-size: 1rem; /* Make social links smaller */
+      margin: 0.5rem 0; /* Adjust spacing between social links */
+    }
+  
+    footer nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    footer nav a {
+      font-size: 1rem; /* Adjust nav links for small screens */
+    }
+  }
+  
+  /* Very small screens (older iPhones, Android phones) */
+  @media screen and (max-width: 480px) {
+    .footer-content p {
+      font-size: 0.9rem; /* Further reduce text size for very small screens */
+    }
+  
+    .social-links a {
+      font-size: 0.9rem; /* Smaller font size for social links */
+    }
+  
+    footer nav a {
+      font-size: 0.9rem; /* Adjust nav link size for very small screens */
+    }
+  }
+  
